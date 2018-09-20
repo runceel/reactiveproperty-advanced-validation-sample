@@ -6,7 +6,14 @@
         xmlns:local="clr-namespace:RPValidationSample"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <Window.DataContext>
+        <local:MainWindowViewModel />
+    </Window.DataContext>
+    <StackPanel Margin="10">
+        <TextBox Text="{Binding Input.Value, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBlock Text="{Binding ErrorMessage.Value}"
+                   Foreground="Red" />
+        <Button Content="Invoke model validation logic" 
+                Command="{Binding SubmitCommand}" />
+    </StackPanel>
 </Window>
